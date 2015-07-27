@@ -1,5 +1,5 @@
 var testCase = buster.testCase("Iterator tests", {
-	//testing an empty array
+	//the main set up, with a simple test array
 	"empty array": {
 		setUp: function(){
 			this.inputArray = [];
@@ -29,7 +29,6 @@ var testCase = buster.testCase("Iterator tests", {
 		},
 	},
 	
-	//array of empty elements
 	"array of empty elements":{
 		setUp: function(){
 			this.inputArray = [ , , , ,];
@@ -66,7 +65,6 @@ var testCase = buster.testCase("Iterator tests", {
 		},
 	},	
 	
-	//single element
 	"one element array": {
 		setUp: function(){
 			this.inputArray = [1];
@@ -136,13 +134,13 @@ var testCase = buster.testCase("Iterator tests", {
 			buster.assert.equals(1,this.iter.current());
 		},
 	
-		"tag should return the tagged value after a next()" : function () {
+		"tag returns the tagged value after a next()" : function () {
 			this.tag = this.iter.tag();
 			this.iter.next();
 			buster.assert.equals(1,this.tag());
 		},
 		
-		"tag should return the tagged value after a reverse() and next()" : function () {
+		"tag returns the tagged value after a reverse() and next()" : function () {
 			this.tag = this.iter.tag();
 			this.iter.reverse();
 			this.iter.next();
@@ -181,7 +179,7 @@ var testCase = buster.testCase("Iterator tests", {
 		
 	},
 	
-	//the same as numeric input, to make sure nothing fails when we have a mess of different inputs
+	//the same as numeric input, to make sure nothing fails with a mess of different inputs
 	"mixed input": {
 		setUp: function(){
 			this.inputArray = ["foo", 4, ,[1,2],"bar",{bat:1}];
@@ -235,12 +233,14 @@ var testCase = buster.testCase("Iterator tests", {
 		},
 			
 		"if the iterator is reversed from the ending point it will be at the start": function () {
+			//go to the end
 			for(var i=0;i<6;i++){
 				this.iter.next();
 			}
 				
 			this.iter.reverse();
 				
+			//check that there is a next() and it is the expected value
 			buster.assert.equals("bar",this.iter.next());
 		}
 		
