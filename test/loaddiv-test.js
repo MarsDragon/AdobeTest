@@ -4,6 +4,10 @@ var testCase = buster.testCase("loadDiv tests", {
 			this.iter = loadDiv();
 		},
 		
+		"an iterator should exist": function () {
+			buster.assert.defined(this.iter);
+		},
+		
 		//relies on us knowing the contents of the given HTML to make sure it's not mangling the input
 		"current should equal string 1" : function () {
 			buster.assert.equals('1', this.iter.current());

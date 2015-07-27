@@ -134,13 +134,13 @@ var testCase = buster.testCase("Iterator tests", {
 			buster.assert.equals(1,this.iter.current());
 		},
 	
-		"tag returns the tagged value after a next()" : function () {
+		"tag should return the tagged value after a next()" : function () {
 			this.tag = this.iter.tag();
 			this.iter.next();
 			buster.assert.equals(1,this.tag());
 		},
 		
-		"tag returns the tagged value after a reverse() and next()" : function () {
+		"tag should return the tagged value after a reverse() and next()" : function () {
 			this.tag = this.iter.tag();
 			this.iter.reverse();
 			this.iter.next();
@@ -233,14 +233,12 @@ var testCase = buster.testCase("Iterator tests", {
 		},
 			
 		"if the iterator is reversed from the ending point it will be at the start": function () {
-			//go to the end
 			for(var i=0;i<6;i++){
 				this.iter.next();
 			}
 				
 			this.iter.reverse();
 				
-			//check that there is a next() and it is the expected value
 			buster.assert.equals("bar",this.iter.next());
 		}
 		
