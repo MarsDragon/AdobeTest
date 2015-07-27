@@ -1,0 +1,9 @@
+Amy's Adobe Coding Challenge
+
+Here is the code for the Adobe Coding Challenge.
+
+Root has test.html, the HTML file from question 2. I added in script tags to make the JS work on the page itself, but the tests run without them. 
+
+lib/ contains the source code with iterator.js being the main Iterator class and loadDiv for loading from test.html. loadDiv was kept as clean as possible, which is why the call is in a script tag on the HTML. 
+
+test contains the unit tests, using BusterJS. They should all pass if you run them. See information on running them at: http://docs.busterjs.org/en/latest/overview/#browser-testing buster.js is the configuration file.
